@@ -3,7 +3,28 @@ export function range(start, end, step = 1) {
   const output = []
 
   //  implement a range function
+  // if only one argument, treat as end
+  if (end === undefined) {
+    end = start;
+    start = 0;
+  }
 
+  // if step = 0 
+  if(step === 0) {
+    throw new Error("step cannnot be zero")
+  }
+
+  // postive step, counts upward
+  if(step > 0) {
+    for (let i = start; i < end; i += step) {
+      output.push(i)
+    }
+  } else {
+     // negative step, counts downward
+  for (let i = start; i > end; i += step) {
+    output.push(i)
+  }
+  }
   return output
 }
 
